@@ -2,28 +2,50 @@ package com.app.downtown.domain
 
 import com.app.downtown.domain.PlayerDummy.jamesHarden
 import com.app.downtown.domain.Team.BROOKLYN_NETS
-import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test
 
 class RosterTest {
 
     @Test
-    fun `add a player to the current roster`() {
+    fun `add a titular player to the current roster`() {
         val player = jamesHarden
         val roster = Roster()
 
-        roster.addPlayer(player)
+        roster.addTitularPlayer(player)
 
-        val expected = Roster(players = mutableListOf(player))
+        val expected = Roster(titularPlayers = RosterPlayers(mutableListOf(jamesHarden)))
         assertEquals(expected, roster)
     }
 
     @Test
-    fun `delete a player to the current roster`() {
+    fun `remove a titular player to the current roster`() {
         val player = jamesHarden
-        val roster = Roster(players = mutableListOf(player))
+        val roster = Roster(titularPlayers = RosterPlayers(mutableListOf(player)))
 
-        roster.deletePlayer(player)
+        roster.removeTitularPlayer(player)
+
+        val expected = Roster()
+        assertEquals(expected, roster)
+    }
+
+    @Test
+    fun `add a substitute player to the current roster`() {
+        val player = jamesHarden
+        val roster = Roster()
+
+        roster.addSubstitutePlayer(player)
+
+        val expected = Roster(substitutePlayers = RosterPlayers(mutableListOf(jamesHarden)))
+        assertEquals(expected, roster)
+    }
+
+    @Test
+    fun `remove a substitute player to the current roster`() {
+        val player = jamesHarden
+        val roster = Roster(substitutePlayers = RosterPlayers(mutableListOf(player)))
+
+        roster.removeSubstitutePlayer(player)
 
         val expected = Roster()
         assertEquals(expected, roster)

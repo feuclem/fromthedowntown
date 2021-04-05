@@ -10,7 +10,7 @@ object PlayerDummy {
         lastName = "Harden",
         team = BROOKLYN_NETS,
         number = 13,
-        position = SHOOTING_GUARD,
+        position = POINT_GUARD,
         average = Average(26.1, 11.2, 8.9),
         price = 46.2
     )
@@ -125,6 +125,125 @@ object PlayerDummy {
         price = 17.6
     )
 
+    val karlAntonyTowns = Player(
+        firstName = "Karl-Anthony",
+        lastName = "Towns",
+        team = MINNESOTA_TIMBERWOLVES,
+        number = 32,
+        position = CENTER,
+        average = Average(24.6, 4.3, 11.0),
+        price = 39.9
+    )
+
+    val jimmyButler = Player(
+        firstName = "Jimmy",
+        lastName = "Butler",
+        team = MIAMI_HEAT,
+        number = 22,
+        position = SMALL_FORWARD,
+        average = Average(21.2, 7.3, 7.5),
+        price = 36.0
+    )
+
+    val devinBooker = Player(
+        firstName = "Devin",
+        lastName = "Booker",
+        team = PHOENIX_SUNS,
+        number = 1,
+        position = SHOOTING_GUARD,
+        average = Average(25.6, 4.5, 4.1),
+        price = 34.2
+    )
+
+    val jakobPoeltl = Player(
+        firstName = "Jakob",
+        lastName = "Poeltl",
+        team = PHOENIX_SUNS,
+        number = 25,
+        position = CENTER,
+        average = Average(8.0, 8.1, 1.8),
+        price = 17.9
+    )
+
+    val aaronGordon = Player(
+        firstName = "Aaron",
+        lastName = "Gordon",
+        team = DENVER_NUGGETS,
+        number = 50,
+        position = POWER_FORWARD,
+        average = Average(14.5, 4.0, 6.4),
+        price = 24.9
+    )
+
+    val garrisonMathews = Player(
+        firstName = "Garrison",
+        lastName = "Mathews",
+        team = WASHINGTON_WIZARDS,
+        number = 24,
+        position = SHOOTING_GUARD,
+        average = Average(6.5, 1.6, 0.5),
+        price = 8.6
+    )
+
+    val grantWilliams = Player(
+        firstName = "Grant",
+        lastName = "Williams",
+        team = BOSTON_CELTICS,
+        number = 12,
+        position = POWER_FORWARD,
+        average = Average(4.7, 1.0, 3.0),
+        price = 8.7
+    )
+
+    val aaronHoliday = Player(
+        firstName = "Aaron",
+        lastName = "Holiday",
+        team = BOSTON_CELTICS,
+        number = 3,
+        position = POINT_GUARD,
+        average = Average(7.0, 1.7, 1.2),
+        price = 9.9
+    )
+
+    val isaiahStewart = Player(
+        firstName = "Isaiah",
+        lastName = "Stewart",
+        team = DETROIT_PISTONS,
+        number = 28,
+        position = POWER_FORWARD,
+        average = Average(6.3, 0.8, 5.8),
+        price = 12.9
+    )
+
+    val lamarcusAldridge = Player(
+        firstName = "LaMarcus",
+        lastName = "Aldridge",
+        team = BROOKLYN_NETS,
+        number = 21,
+        position = CENTER,
+        average = Average(13.5, 1.9, 4.6),
+        price = 20.0
+    )
+
+    val chrisPaul = Player(
+        firstName = "Chris",
+        lastName = "Paul",
+        team = PHOENIX_SUNS,
+        number = 3,
+        position = POINT_GUARD,
+        average = Average(16.0, 8.7, 4.7),
+        price = 29.4
+    )
+
+    val kawhiLeonard = Player(
+        firstName = "Kawhi",
+        lastName = "Leonard",
+        team = LOS_ANGELES_CLIPPERS,
+        number = 2,
+        position = SMALL_FORWARD,
+        average = Average(25.7, 4.9, 6.5),
+        price = 37.1
+    )
 
     val players = listOf(
         jamesHarden,
@@ -139,5 +258,21 @@ object PlayerDummy {
         stephenCurry,
         nikolaJokic,
         luguentzDort
+    )
+
+    val rosterTitularPlayers = mutableListOf(
+        karlAntonyTowns,
+        jimmyButler,
+        kawhiLeonard,
+        chrisPaul,
+        stephenCurry
+    )
+
+    val rosterBenchPlayers = mutableListOf(
+        aaronGordon,
+        lamarcusAldridge,
+        isaiahStewart,
+        garrisonMathews,
+        aaronHoliday
     )
 }

@@ -1,15 +1,24 @@
 package com.app.downtown.domain
 
 data class Roster(
-    val players: MutableList<Player> = mutableListOf(),
-    var trainer: Trainer? = null
+    private var titularPlayers: RosterPlayers = RosterPlayers(mutableListOf()),
+    private var substitutePlayers: RosterPlayers = RosterPlayers(mutableListOf()),
+    private var trainer: Trainer? = null
 ) {
-    fun addPlayer(player: Player) {
-        players.add(player)
+
+    fun addTitularPlayer(player: Player) {
+        titularPlayers.add(player)
     }
 
-    fun deletePlayer(player: Player) {
-        players.remove(player)
+    fun removeTitularPlayer(player: Player) {
+        titularPlayers.remove(player)
+    }
+    fun addSubstitutePlayer(player: Player) {
+        substitutePlayers.add(player)
+    }
+
+    fun removeSubstitutePlayer(player: Player) {
+        substitutePlayers.remove(player)
     }
 
     fun addTrainer(trainer: Trainer) {
