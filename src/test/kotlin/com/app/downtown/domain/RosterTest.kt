@@ -1,6 +1,6 @@
 package com.app.downtown.domain
 
-import com.app.downtown.domain.PlayerDummy.jamesHarden
+import com.app.downtown.PlayerDummy.jamesHarden
 import com.app.downtown.domain.Team.BROOKLYN_NETS
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test

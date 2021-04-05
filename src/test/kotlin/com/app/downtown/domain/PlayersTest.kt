@@ -1,18 +1,25 @@
 package com.app.downtown.domain
 
-import com.app.downtown.domain.PlayerDummy.donovanMitchell
-import com.app.downtown.domain.PlayerDummy.jamesHarden
-import com.app.downtown.domain.PlayerDummy.joelEmbiid
-import com.app.downtown.domain.PlayerDummy.juliusRandle
-import com.app.downtown.domain.PlayerDummy.lameloBall
-import com.app.downtown.domain.PlayerDummy.luguentzDort
-import com.app.downtown.domain.PlayerDummy.nikolaJokic
-import com.app.downtown.domain.PlayerDummy.players
-import com.app.downtown.domain.PlayerDummy.rudyGobert
-import com.app.downtown.domain.PlayerDummy.stephenCurry
-import com.app.downtown.domain.PlayerDummy.tobiasHarris
-import com.app.downtown.domain.PlayerDummy.tylerHerro
-import com.app.downtown.domain.PlayerDummy.zionWilliamson
+import com.app.downtown.PlayerDummy.aaronHoliday
+import com.app.downtown.PlayerDummy.donovanMitchell
+import com.app.downtown.PlayerDummy.garrisonMathews
+import com.app.downtown.PlayerDummy.grantWilliams
+import com.app.downtown.PlayerDummy.isaiahStewart
+import com.app.downtown.PlayerDummy.jakobPoeltl
+import com.app.downtown.PlayerDummy.jamesHarden
+import com.app.downtown.PlayerDummy.joelEmbiid
+import com.app.downtown.PlayerDummy.juliusRandle
+import com.app.downtown.PlayerDummy.karlAntonyTowns
+import com.app.downtown.PlayerDummy.lamarcusAldridge
+import com.app.downtown.PlayerDummy.lameloBall
+import com.app.downtown.PlayerDummy.luguentzDort
+import com.app.downtown.PlayerDummy.nikolaJokic
+import com.app.downtown.PlayerDummy.players
+import com.app.downtown.PlayerDummy.rudyGobert
+import com.app.downtown.PlayerDummy.stephenCurry
+import com.app.downtown.PlayerDummy.tobiasHarris
+import com.app.downtown.PlayerDummy.tylerHerro
+import com.app.downtown.PlayerDummy.zionWilliamson
 import com.app.downtown.domain.Position.CENTER
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
@@ -35,7 +42,7 @@ class PlayersTest {
 
         val result = players.filterByPosition(CENTER)
 
-        val expected = listOf(joelEmbiid, rudyGobert, nikolaJokic)
+        val expected = listOf(joelEmbiid, rudyGobert, nikolaJokic, karlAntonyTowns, jakobPoeltl, lamarcusAldridge)
         assertEquals(expected, result)
     }
 
@@ -53,9 +60,9 @@ class PlayersTest {
     fun `filter with price inferior at 25`() {
         val players = Players(players = players)
 
-        val result = players.filterWithPriceInferiorAt(25.0)
+        val result = players.filterWithPriceInferiorAt(20.0)
 
-        val expected = listOf(tylerHerro, luguentzDort)
+        val expected = listOf(luguentzDort, jakobPoeltl, garrisonMathews, grantWilliams, aaronHoliday, isaiahStewart, lamarcusAldridge)
         assertEquals(expected, result)
     }
 
@@ -66,20 +73,11 @@ class PlayersTest {
         val result = players.filterByAscendingPrice()
 
         val expected = listOf(
-            luguentzDort,
-            tylerHerro,
-            lameloBall,
-            rudyGobert,
-            tobiasHarris,
-            donovanMitchell,
-            zionWilliamson,
-            juliusRandle,
-            stephenCurry,
-            joelEmbiid,
-            nikolaJokic,
-            jamesHarden
+            garrisonMathews,
+            grantWilliams,
+            aaronHoliday
         )
-        assertEquals(expected, result)
+        assertEquals(expected, result.subList(0, 3))
     }
 
     @Test
@@ -91,17 +89,8 @@ class PlayersTest {
         val expected = listOf(
             jamesHarden,
             nikolaJokic,
-            joelEmbiid,
-            stephenCurry,
-            juliusRandle,
-            zionWilliamson,
-            donovanMitchell,
-            tobiasHarris,
-            rudyGobert,
-            lameloBall,
-            tylerHerro,
-            luguentzDort
+            joelEmbiid
         )
-        assertEquals(expected, result)
+        assertEquals(expected, result.subList(0, 3))
     }
 }

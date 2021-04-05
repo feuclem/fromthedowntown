@@ -1,5 +1,7 @@
-package com.app.downtown.domain
+package com.app.downtown
 
+import com.app.downtown.domain.Average
+import com.app.downtown.domain.Player
 import com.app.downtown.domain.Position.*
 import com.app.downtown.domain.Team.*
 
@@ -158,7 +160,7 @@ object PlayerDummy {
     val jakobPoeltl = Player(
         firstName = "Jakob",
         lastName = "Poeltl",
-        team = PHOENIX_SUNS,
+        team = SAN_ANTONIO_SPURS,
         number = 25,
         position = CENTER,
         average = Average(8.0, 8.1, 1.8),
@@ -257,7 +259,19 @@ object PlayerDummy {
         juliusRandle,
         stephenCurry,
         nikolaJokic,
-        luguentzDort
+        luguentzDort,
+        karlAntonyTowns,
+        jimmyButler,
+        devinBooker,
+        jakobPoeltl,
+        aaronGordon,
+        garrisonMathews,
+        grantWilliams,
+        aaronHoliday,
+        isaiahStewart,
+        lamarcusAldridge,
+        chrisPaul,
+        kawhiLeonard
     )
 
     val rosterTitularPlayers = mutableListOf(
