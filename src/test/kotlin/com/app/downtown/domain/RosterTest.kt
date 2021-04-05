@@ -8,20 +8,20 @@ import org.junit.jupiter.api.Test
 class RosterTest {
 
     @Test
-    fun `add a titular player to the current roster`() {
+    fun `add a titular player to the current roster and decrease total credit of player price amount`() {
         val player = jamesHarden
         val roster = Roster()
 
         roster.addTitularPlayer(player)
 
-        val expected = Roster(titularPlayers = RosterPlayers(mutableListOf(jamesHarden)))
+        val expected = Roster(titularPlayers = RosterPlayers(mutableListOf(jamesHarden)), totalCredit = 203.8)
         assertEquals(expected, roster)
     }
 
     @Test
-    fun `remove a titular player to the current roster`() {
+    fun `remove a titular player to the current roster and increase total credit of player price amount`() {
         val player = jamesHarden
-        val roster = Roster(titularPlayers = RosterPlayers(mutableListOf(player)))
+        val roster = Roster(titularPlayers = RosterPlayers(mutableListOf(player)), totalCredit = 203.8)
 
         roster.removeTitularPlayer(player)
 
@@ -36,14 +36,14 @@ class RosterTest {
 
         roster.addSubstitutePlayer(player)
 
-        val expected = Roster(substitutePlayers = RosterPlayers(mutableListOf(jamesHarden)))
+        val expected = Roster(substitutePlayers = RosterPlayers(mutableListOf(jamesHarden)), totalCredit = 203.8)
         assertEquals(expected, roster)
     }
 
     @Test
     fun `remove a substitute player to the current roster`() {
         val player = jamesHarden
-        val roster = Roster(substitutePlayers = RosterPlayers(mutableListOf(player)))
+        val roster = Roster(substitutePlayers = RosterPlayers(mutableListOf(player)), totalCredit = 203.8)
 
         roster.removeSubstitutePlayer(player)
 
