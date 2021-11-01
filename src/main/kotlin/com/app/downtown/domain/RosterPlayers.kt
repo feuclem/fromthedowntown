@@ -1,21 +1,22 @@
 package com.app.downtown.domain
 
 import com.app.downtown.domain.Position.*
+import com.app.downtown.domain.player.EndPlayer
 
 data class RosterPlayers(
-    private val list: MutableList<Player> = mutableListOf()
+    private val list: MutableList<EndPlayer> = mutableListOf()
 ) {
 
-    fun add(player: Player) {
-        list.add(player)
+    fun add(endPlayer: EndPlayer) {
+        list.add(endPlayer)
     }
 
-    fun remove(player: Player) {
-        list.remove(player)
+    fun remove(endPlayer: EndPlayer) {
+        list.remove(endPlayer)
     }
 
-    fun isPlayerAddable(player: Player): Boolean =
-        list.contains(player).not()
+    fun isPlayerAddable(endPlayer: EndPlayer): Boolean =
+        list.contains(endPlayer).not()
                 && list.size < 5
                 && list.any { it.position == CENTER }.not()
                 && list.count { it.position == POWER_FORWARD } < 2

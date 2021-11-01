@@ -16,10 +16,13 @@ repositories {
 }
 
 dependencies {
-    implementation("org.springframework.boot:spring-boot-starter")
+    implementation("org.springframework.boot:spring-boot-starter:2.5.5")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
-    testImplementation("org.springframework.boot:spring-boot-starter-test")
+    implementation("org.jsoup:jsoup:1.14.3")
+    testImplementation("org.springframework.boot:spring-boot-starter-test:2.5.5")
+    testImplementation("org.mock-server:mockserver-netty:5.11.2")
+    testImplementation("org.mockito:mockito-core:4.0.0")
 }
 
 tasks.withType<KotlinCompile> {

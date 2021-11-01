@@ -1,5 +1,7 @@
 package com.app.downtown.domain
 
+import com.app.downtown.domain.player.EndPlayer
+
 data class Roster(
     private var titularPlayers: RosterPlayers = RosterPlayers(mutableListOf()),
     private var substitutePlayers: RosterPlayers = RosterPlayers(mutableListOf()),
@@ -7,36 +9,36 @@ data class Roster(
     private val totalCredit: TotalCredit = TotalCredit()
 ) {
 
-    fun addTitularPlayer(player: Player) {
-        with(player) {
+    fun addTitularPlayer(endPlayer: EndPlayer) {
+        with(endPlayer) {
             if (titularPlayers.isPlayerAddable(this)) {
                 titularPlayers.add(this)
-                if (totalCredit.isTransactionPossible(price)) {
-                    totalCredit.decreaseAmount(price)
+                if (totalCredit.isTransactionPossible(this.average.computePrice)) {
+                    totalCredit.decreaseAmount(this.average.computePrice)
                 }
             }
         }
     }
 
-    fun removeTitularPlayer(player: Player) {
-        titularPlayers.remove(player)
-        totalCredit.increaseAmount(player.price)
+    fun removeTitularPlayer(endPlayer: EndPlayer) {
+        titularPlayers.remove(endPlayer)
+        totalCredit.increaseAmount(endPlayer.average.computePrice)
     }
 
-    fun addSubstitutePlayer(player: Player) {
-        with(player) {
+    fun addSubstitutePlayer(endPlayer: EndPlayer) {
+        with(endPlayer) {
             if (substitutePlayers.isPlayerAddable(this)) {
                 substitutePlayers.add(this)
-                if (totalCredit.isTransactionPossible(price)) {
-                    totalCredit.decreaseAmount(price)
+                if (totalCredit.isTransactionPossible(this.average.computePrice)) {
+                    totalCredit.decreaseAmount(this.average.computePrice)
                 }
             }
         }
     }
 
-    fun removeSubstitutePlayer(player: Player) {
-        substitutePlayers.remove(player)
-        totalCredit.increaseAmount(player.price)
+    fun removeSubstitutePlayer(endPlayer: EndPlayer) {
+        substitutePlayers.remove(endPlayer)
+        totalCredit.increaseAmount(endPlayer.average.computePrice)
     }
 
     fun addTrainer(trainer: Trainer) {

@@ -8,7 +8,7 @@ class TotalCreditTest {
 
     @Test
     fun `decrease amount`() {
-        val amountToDecrease = jamesHarden.price
+        val amountToDecrease = jamesHarden.average.computePrice
         val totalCredit = TotalCredit()
 
         totalCredit.decreaseAmount(amountToDecrease)
@@ -19,7 +19,7 @@ class TotalCreditTest {
 
     @Test
     fun `increase amount`() {
-        val amountToIncrease = jamesHarden.price
+        val amountToIncrease = jamesHarden.average.computePrice
         val totalCredit = TotalCredit(amount = 203.8)
 
         totalCredit.increaseAmount(amountToIncrease)
@@ -30,7 +30,7 @@ class TotalCreditTest {
 
     @Test
     fun `is transaction possible`() {
-        val amountToDecrease = jamesHarden.price
+        val amountToDecrease = jamesHarden.average.computePrice
         val totalCredit = TotalCredit(amount = 20.0)
 
         val result = totalCredit.isTransactionPossible(amountToDecrease)
