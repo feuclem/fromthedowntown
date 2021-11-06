@@ -11,7 +11,7 @@ object PlayerDummy {
         firstName = "James",
         lastName = "Harden",
         team = BROOKLYN_NETS,
-        number = 13,
+        number = "13",
         position = POINT_GUARD,
         average = Average(26.1, 8.9, 11.2)
     )
@@ -20,7 +20,7 @@ object PlayerDummy {
         firstName = "Joel",
         lastName = "Embiid",
         team = PHILADELPHIA_76_ERS,
-        number = 21,
+        number = "21",
         position = CENTER,
         average = Average(29.9, 11.5, 3.3)
     )
@@ -29,7 +29,7 @@ object PlayerDummy {
         firstName = "Zion",
         lastName = "Williamson",
         team = NEW_ORLEANS_PELICANS,
-        number = 1,
+        number = "1",
         position = POWER_FORWARD,
         average = Average(26.4, 7.1, 3.5)
     )
@@ -38,7 +38,7 @@ object PlayerDummy {
         firstName = "Tyler",
         lastName = "Heroo",
         team = MIAMI_HEAT,
-        number = 14,
+        number = "14",
         position = POINT_GUARD,
         average = Average(15.7, 5.2, 3.5)
     )
@@ -47,7 +47,7 @@ object PlayerDummy {
         firstName = "LaMelo",
         lastName = "Ball",
         team = CHARLOTTE_HORNETS,
-        number = 1,
+        number = "1",
         position = POINT_GUARD,
         average = Average(15.9, 5.9, 6.1)
     )
@@ -56,7 +56,7 @@ object PlayerDummy {
         firstName = "Tobias",
         lastName = "Harris",
         team = PHILADELPHIA_76_ERS,
-        number = 12,
+        number = "12",
         position = SMALL_FORWARD,
         average = Average(20.5, 7.3, 3.6)
     )
@@ -65,7 +65,7 @@ object PlayerDummy {
         firstName = "Rudy",
         lastName = "Gobert",
         team = UTAH_JAZZ,
-        number = 27,
+        number = "27",
         position = CENTER,
         average = Average(14.6, 1.3, 13.3)
     )
@@ -74,7 +74,7 @@ object PlayerDummy {
         firstName = "Donovan",
         lastName = "Mitchell",
         team = UTAH_JAZZ,
-        number = 45,
+        number = "45",
         position = SHOOTING_GUARD,
         average = Average(25.7, 4.5, 5.5)
     )
@@ -83,7 +83,7 @@ object PlayerDummy {
         firstName = "Julius",
         lastName = "Randle",
         team = NEW_YORK_KNICKS,
-        number = 30,
+        number = "30",
         position = POWER_FORWARD,
         average = Average(23.1, 5.8, 10.8)
     )
@@ -92,7 +92,7 @@ object PlayerDummy {
         firstName = "Stephen",
         lastName = "Curry",
         team = GOLDEN_STATE_WARRIORS,
-        number = 30,
+        number = "30",
         position = POINT_GUARD,
         average = Average(29.2, 5.5, 6.1)
     )
@@ -101,7 +101,7 @@ object PlayerDummy {
         firstName = "Nikola",
         lastName = "Jokic",
         team = DENVER_NUGGETS,
-        number = 15,
+        number = "15",
         position = CENTER,
         average = Average(26.5, 11.0, 8.4)
     )
@@ -110,7 +110,7 @@ object PlayerDummy {
         firstName = "Luguentz",
         lastName = "Dort",
         team = OKLAHOMA_CITY_THUNDER,
-        number = 5,
+        number = "5",
         position = SMALL_FORWARD,
         average = Average(12.6, 3.4, 1.6)
     )
@@ -119,7 +119,7 @@ object PlayerDummy {
         firstName = "Karl-Anthony",
         lastName = "Towns",
         team = MINNESOTA_TIMBERWOLVES,
-        number = 32,
+        number = "32",
         position = CENTER,
         average = Average(24.6, 11.0, 4.3)
     )
@@ -128,7 +128,7 @@ object PlayerDummy {
         firstName = "Jimmy",
         lastName = "Butler",
         team = MIAMI_HEAT,
-        number = 22,
+        number = "22",
         position = SMALL_FORWARD,
         average = Average(21.2, 7.5, 7.3)
     )
@@ -137,7 +137,7 @@ object PlayerDummy {
         firstName = "Devin",
         lastName = "Booker",
         team = PHOENIX_SUNS,
-        number = 1,
+        number = "1",
         position = SHOOTING_GUARD,
         average = Average(25.6, 4.1, 4.5)
     )
@@ -146,7 +146,7 @@ object PlayerDummy {
         firstName = "Jakob",
         lastName = "Poeltl",
         team = SAN_ANTONIO_SPURS,
-        number = 25,
+        number = "25",
         position = CENTER,
         average = Average(8.0, 1.8, 8.1)
     )
@@ -155,7 +155,7 @@ object PlayerDummy {
         firstName = "Aaron",
         lastName = "Gordon",
         team = DENVER_NUGGETS,
-        number = 50,
+        number = "50",
         position = POWER_FORWARD,
         average = Average(14.5, 6.4, 4.0)
     )
@@ -164,7 +164,7 @@ object PlayerDummy {
         firstName = "Garrison",
         lastName = "Mathews",
         team = WASHINGTON_WIZARDS,
-        number = 24,
+        number = "24",
         position = SHOOTING_GUARD,
         average = Average(6.5, 0.5, 1.6)
     )
@@ -173,7 +173,7 @@ object PlayerDummy {
         firstName = "Grant",
         lastName = "Williams",
         team = BOSTON_CELTICS,
-        number = 12,
+        number = "12",
         position = POWER_FORWARD,
         average = Average(4.7, 3.0, 1.0)
     )
@@ -182,7 +182,7 @@ object PlayerDummy {
         firstName = "Aaron",
         lastName = "Holiday",
         team = BOSTON_CELTICS,
-        number = 3,
+        number = "3",
         position = POINT_GUARD,
         average = Average(7.0, 1.2, 1.7)
     )
@@ -191,7 +191,7 @@ object PlayerDummy {
         firstName = "Isaiah",
         lastName = "Stewart",
         team = DETROIT_PISTONS,
-        number = 28,
+        number = "28",
         position = POWER_FORWARD,
         average = Average(6.3, 5.8, 0.8)
     )
@@ -200,7 +200,7 @@ object PlayerDummy {
         firstName = "LaMarcus",
         lastName = "Aldridge",
         team = BROOKLYN_NETS,
-        number = 21,
+        number = "21",
         position = CENTER,
         average = Average(13.5, 4.6, 1.9)
     )
@@ -209,7 +209,7 @@ object PlayerDummy {
         firstName = "Chris",
         lastName = "Paul",
         team = PHOENIX_SUNS,
-        number = 3,
+        number = "3",
         position = POINT_GUARD,
         average = Average(16.0, 4.7, 8.7)
     )
@@ -218,7 +218,7 @@ object PlayerDummy {
         firstName = "Kawhi",
         lastName = "Leonard",
         team = LOS_ANGELES_CLIPPERS,
-        number = 2,
+        number = "2",
         position = SMALL_FORWARD,
         average = Average(25.7, 6.5, 4.9)
     )
@@ -271,6 +271,60 @@ object PlayerDummy {
                                 <body class="bbr">
                                     <div id="wrap">                      
 <div id="content">
+<div id="all_roster" class="table_wrapper">
+
+<div class="section_heading assoc_roster has_controls" id="roster_sh">
+  <span class="section_anchor" id="roster_link" data-label="Roster"></span><h2>Roster</h2>    <div class="section_heading_text">
+      <ul><li><span class="note">(TW) - Signed to two-way contract w/ G-League affiliate</span></li>
+      <li class="hasmore"><span>Share &amp; Export</span><div><ul><li><button class="tooltip" tip="Use a customizable report creator that can<br>output HTML, CSV, or a shareable link." type="button" id="share_on_roster">Modify, Export &amp; Share Table</button></li><li><button class="tooltip" tip="Get a bit of widget code to embed this table on your site" type="button">Embed this Table</button></li><li><button class="tooltip" tip="Convert the table below to comma-separated values<br>suitable for use with Excel" type="button">Get as Excel Workbook</button><a id="dlink" style="display: none;"></a></li><li><button class="tooltip" tip="Get a link directly to this table on this page" type="button">Get table as CSV (for Excel)</button></li><li><button class="tooltip" tip="" type="button" id="a_roster" name="roster" href="#roster">Get Link to Table</button></li><li><button class="tooltip" tip="" type="button">About Sharing Tools</button></li><li><button class="tooltip" tip="" type="button"><a href="https://www.youtube.com/watch?v=MWapXbaWs_U&amp;feature=youtu.be" target="_blank">Video: SR Sharing Tools &amp; How-to</a></button></li><li><button class="tooltip" tip="" type="button"><a href="https://www.youtube.com/watch?v=JkDLV0roT14&amp;feature=youtu.be" target="_blank">Video: Stats Table Tips &amp; Tricks</a></button></li><li><button class="tooltip" tip="" type="button"><a href="https://www.sports-reference.com/data_use.html" target="_blank">Data Usage Terms</a></button></li></ul></div></li><li><button class="tooltip" tip="Show a glossary for each term in the table below<br>or hold your mouse over the header" type="button">Glossary</button></li></ul>
+    </div>
+    		
+</div>
+<div class="table_container is_setup" id="div_roster">
+    
+    <table class="sortable stats_table now_sortable" id="roster" data-cols-to-freeze=",2">
+    <caption>Roster Table</caption>
+    
+   <colgroup><col><col><col><col><col><col><col><col><col></colgroup>
+   <thead>      
+      <tr>
+         <th aria-label="Uniform Number" data-stat="number" scope="col" class=" poptip sort_default_asc center" data-tip="Uniform Number">No.</th>
+         <th aria-label="Player" data-stat="player" scope="col" class=" poptip sort_default_asc center">Player</th>
+         <th aria-label="Position" data-stat="pos" scope="col" class=" poptip sort_default_asc center" data-tip="Position">Pos</th>
+         <th aria-label="Height" data-stat="height" scope="col" class=" poptip sort_default_asc center" data-tip="Height">Ht</th>
+         <th aria-label="Weight" data-stat="weight" scope="col" class=" poptip sort_default_asc center" data-tip="Weight">Wt</th>
+         <th aria-label="Birth Date" data-stat="birth_date" scope="col" class=" poptip sort_default_asc center">Birth Date</th>
+         <th aria-label="&nbsp;" data-stat="birth_country" scope="col" class=" poptip center">&nbsp;</th>
+         <th aria-label="Years experience in NBA/ABA (prior to this season)" data-stat="years_experience" scope="col" class=" poptip sort_default_asc center" data-tip="Years experience in NBA/ABA (prior to this season)">Exp</th>
+         <th aria-label="College" data-stat="college" scope="col" class=" poptip sort_default_asc center">College</th>
+      </tr>
+      </thead>
+<tbody><tr data-row="0"><th scope="row" class="center " data-stat="number">3</th><td class="left " data-stat="player" csk="Davis,Anthony"><a href="/players/d/davisan02.html">Anthony Davis</a></td><td class="center " data-stat="pos" csk="5">C</td><td class="right " data-stat="height" csk="82.0">6-10</td><td class="right " data-stat="weight">253</td><td class="left " data-stat="birth_date" csk="19930311">March 11, 1993</td><td class="right " data-stat="birth_country"><span class="f-i f-us" style="">us</span></td><td class="right " data-stat="years_experience" csk="9">9</td><td class="left " data-stat="college"><a href="/friv/colleges.fcgi?college=kentucky">Kentucky</a></td></tr>
+<tr data-row="1"><th scope="row" class="center iz" data-stat="number">0</th><td class="left " data-stat="player" csk="Westbrook,Russell"><a href="/players/w/westbru01.html">Russell Westbrook</a></td><td class="center " data-stat="pos" csk="1">PG</td><td class="right " data-stat="height" csk="75.0">6-3</td><td class="right " data-stat="weight">200</td><td class="left " data-stat="birth_date" csk="19881112">November 12, 1988</td><td class="right " data-stat="birth_country"><span class="f-i f-us" style="">us</span></td><td class="right " data-stat="years_experience" csk="13">13</td><td class="left " data-stat="college"><a href="/friv/colleges.fcgi?college=ucla">UCLA</a></td></tr>
+<tr data-row="2"><th scope="row" class="center " data-stat="number">7</th><td class="left " data-stat="player" csk="Anthony,Carmelo"><a href="/players/a/anthoca01.html">Carmelo Anthony</a></td><td class="center " data-stat="pos" csk="4">PF</td><td class="right " data-stat="height" csk="79.0">6-7</td><td class="right " data-stat="weight">238</td><td class="left " data-stat="birth_date" csk="19840529">May 29, 1984</td><td class="right " data-stat="birth_country"><span class="f-i f-us" style="">us</span></td><td class="right " data-stat="years_experience" csk="18">18</td><td class="left " data-stat="college"><a href="/friv/colleges.fcgi?college=syracuse">Syracuse</a></td></tr>
+<tr data-row="3"><th scope="row" class="center " data-stat="number">9</th><td class="left " data-stat="player" csk="Bazemore,Kent"><a href="/players/b/bazemke01.html">Kent Bazemore</a></td><td class="center " data-stat="pos" csk="3">SF</td><td class="right " data-stat="height" csk="76.0">6-4</td><td class="right " data-stat="weight">195</td><td class="left " data-stat="birth_date" csk="19890701">July 1, 1989</td><td class="right " data-stat="birth_country"><span class="f-i f-us" style="">us</span></td><td class="right " data-stat="years_experience" csk="9">9</td><td class="left " data-stat="college"><a href="/friv/colleges.fcgi?college=olddom">Old Dominion</a></td></tr>
+<tr data-row="4"><th scope="row" class="center " data-stat="number">11</th><td class="left " data-stat="player" csk="Monk,Malik"><a href="/players/m/monkma01.html">Malik Monk</a></td><td class="center " data-stat="pos" csk="2">SG</td><td class="right " data-stat="height" csk="75.0">6-3</td><td class="right " data-stat="weight">200</td><td class="left " data-stat="birth_date" csk="19980204">February 4, 1998</td><td class="right " data-stat="birth_country"><span class="f-i f-us" style="">us</span></td><td class="right " data-stat="years_experience" csk="4">4</td><td class="left " data-stat="college"><a href="/friv/colleges.fcgi?college=kentucky">Kentucky</a></td></tr>
+<tr data-row="5"><th scope="row" class="center " data-stat="number">10</th><td class="left " data-stat="player" csk="Jordan,DeAndre"><a href="/players/j/jordade01.html">DeAndre Jordan</a></td><td class="center " data-stat="pos" csk="5">C</td><td class="right " data-stat="height" csk="83.0">6-11</td><td class="right " data-stat="weight">265</td><td class="left " data-stat="birth_date" csk="19880721">July 21, 1988</td><td class="right " data-stat="birth_country"><span class="f-i f-us" style="">us</span></td><td class="right " data-stat="years_experience" csk="13">13</td><td class="left " data-stat="college"><a href="/friv/colleges.fcgi?college=texasam">Texas A&amp;M</a></td></tr>
+<tr data-row="6"><th scope="row" class="center " data-stat="number">15</th><td class="left " data-stat="player" csk="Reaves,Austin"><a href="/players/r/reaveau01.html">Austin Reaves</a></td><td class="center " data-stat="pos" csk="2">SG</td><td class="right " data-stat="height" csk="77.0">6-5</td><td class="right " data-stat="weight">206</td><td class="left " data-stat="birth_date" csk="19980529">May 29, 1998</td><td class="right " data-stat="birth_country"><span class="f-i f-us" style="">us</span></td><td class="right " data-stat="years_experience" csk="0.5">R</td><td class="left " data-stat="college"><a href="/friv/colleges.fcgi?college=wichitast">Wichita State</a>, <a href="/friv/colleges.fcgi?college=oklahoma">Oklahoma</a></td></tr>
+<tr data-row="7"><th scope="row" class="center " data-stat="number">20</th><td class="left " data-stat="player" csk="Bradley,Avery"><a href="/players/b/bradlav01.html">Avery Bradley</a></td><td class="center " data-stat="pos" csk="2">SG</td><td class="right " data-stat="height" csk="75.0">6-3</td><td class="right " data-stat="weight">180</td><td class="left " data-stat="birth_date" csk="19901126">November 26, 1990</td><td class="right " data-stat="birth_country"><span class="f-i f-us" style="">us</span></td><td class="right " data-stat="years_experience" csk="11">11</td><td class="left " data-stat="college"><a href="/friv/colleges.fcgi?college=texas">Texas</a></td></tr>
+<tr data-row="8"><th scope="row" class="center " data-stat="number">39</th><td class="left " data-stat="player" csk="Howard,Dwight"><a href="/players/h/howardw01.html">Dwight Howard</a></td><td class="center " data-stat="pos" csk="5">C</td><td class="right " data-stat="height" csk="82.0">6-10</td><td class="right " data-stat="weight">265</td><td class="left " data-stat="birth_date" csk="19851208">December 8, 1985</td><td class="right " data-stat="birth_country"><span class="f-i f-us" style="">us</span></td><td class="right " data-stat="years_experience" csk="17">17</td><td class="left iz" data-stat="college"></td></tr>
+<tr data-row="9"><th scope="row" class="center " data-stat="number">6</th><td class="left " data-stat="player" csk="James,LeBron"><a href="/players/j/jamesle01.html">LeBron James</a></td><td class="center " data-stat="pos" csk="3">SF</td><td class="right " data-stat="height" csk="81.0">6-9</td><td class="right " data-stat="weight">250</td><td class="left " data-stat="birth_date" csk="19841230">December 30, 1984</td><td class="right " data-stat="birth_country"><span class="f-i f-us" style="">us</span></td><td class="right " data-stat="years_experience" csk="18">18</td><td class="left iz" data-stat="college"></td></tr>
+<tr data-row="10"><th scope="row" class="center " data-stat="number">4</th><td class="left " data-stat="player" csk="Rondo,Rajon"><a href="/players/r/rondora01.html">Rajon Rondo</a></td><td class="center " data-stat="pos" csk="1">PG</td><td class="right " data-stat="height" csk="73.0">6-1</td><td class="right " data-stat="weight">180</td><td class="left " data-stat="birth_date" csk="19860222">February 22, 1986</td><td class="right " data-stat="birth_country"><span class="f-i f-us" style="">us</span></td><td class="right " data-stat="years_experience" csk="15">15</td><td class="left " data-stat="college"><a href="/friv/colleges.fcgi?college=kentucky">Kentucky</a></td></tr>
+<tr data-row="11"><th scope="row" class="center " data-stat="number">2</th><td class="left " data-stat="player" csk="Ellington,Wayne"><a href="/players/e/ellinwa01.html">Wayne Ellington</a></td><td class="center " data-stat="pos" csk="2">SG</td><td class="right " data-stat="height" csk="76.0">6-4</td><td class="right " data-stat="weight">207</td><td class="left " data-stat="birth_date" csk="19871129">November 29, 1987</td><td class="right " data-stat="birth_country"><span class="f-i f-us" style="">us</span></td><td class="right " data-stat="years_experience" csk="12">12</td><td class="left " data-stat="college"><a href="/friv/colleges.fcgi?college=unc">UNC</a></td></tr>
+<tr data-row="12"><th scope="row" class="center iz" data-stat="number"></th><td class="left " data-stat="player" csk="Horton-Tucker,Talen"><a href="/players/h/hortota01.html">Talen Horton-Tucker</a></td><td class="center " data-stat="pos" csk="2">SG</td><td class="right " data-stat="height" csk="76.0">6-4</td><td class="right " data-stat="weight">234</td><td class="left " data-stat="birth_date" csk="20001125">November 25, 2000</td><td class="right " data-stat="birth_country"><span class="f-i f-us" style="">us</span></td><td class="right " data-stat="years_experience" csk="2">2</td><td class="left " data-stat="college"><a href="/friv/colleges.fcgi?college=iowast">Iowa State</a></td></tr>
+<tr data-row="13"><th scope="row" class="center iz" data-stat="number"></th><td class="left " data-stat="player" csk="Nunn,Kendrick"><a href="/players/n/nunnke01.html">Kendrick Nunn</a></td><td class="center " data-stat="pos" csk="1">PG</td><td class="right " data-stat="height" csk="74.0">6-2</td><td class="right " data-stat="weight">190</td><td class="left " data-stat="birth_date" csk="19950803">August 3, 1995</td><td class="right " data-stat="birth_country"><span class="f-i f-us" style="">us</span></td><td class="right " data-stat="years_experience" csk="2">2</td><td class="left " data-stat="college"><a href="/friv/colleges.fcgi?college=illinois">Illinois</a>, <a href="/friv/colleges.fcgi?college=oakland">Oakland</a></td></tr>
+<tr data-row="14"><th scope="row" class="center iz" data-stat="number"></th><td class="left " data-stat="player" csk="Doumbouya,Sekou"><a href="/players/d/doumbse01.html">Sekou Doumbouya</a>&nbsp;&nbsp;<span class="note"><small>(TW)</small></span></td><td class="center " data-stat="pos" csk="4">PF</td><td class="right " data-stat="height" csk="80.0">6-8</td><td class="right " data-stat="weight">230</td><td class="left " data-stat="birth_date" csk="20001223">December 23, 2000</td><td class="right " data-stat="birth_country"><span class="f-i f-gn" style="">gn</span></td><td class="right " data-stat="years_experience" csk="2">2</td><td class="left iz" data-stat="college"></td></tr>
+<tr data-row="15"><th scope="row" class="center iz" data-stat="number"></th><td class="left " data-stat="player" csk="Ariza,Trevor"><a href="/players/a/arizatr01.html">Trevor Ariza</a></td><td class="center " data-stat="pos" csk="3">SF</td><td class="right " data-stat="height" csk="80.0">6-8</td><td class="right " data-stat="weight">215</td><td class="left " data-stat="birth_date" csk="19850630">June 30, 1985</td><td class="right " data-stat="birth_country"><span class="f-i f-us" style="">us</span></td><td class="right " data-stat="years_experience" csk="17">17</td><td class="left " data-stat="college"><a href="/friv/colleges.fcgi?college=ucla">UCLA</a></td></tr>
+<tr data-row="16"><th scope="row" class="center iz" data-stat="number"></th><td class="left " data-stat="player" csk="Huff,Jay"><a href="/players/h/huffja01.html">Jay Huff</a>&nbsp;&nbsp;<span class="note"><small>(TW)</small></span></td><td class="center " data-stat="pos" csk="4.25">F-C</td><td class="right " data-stat="height" csk="85.0">7-1</td><td class="right " data-stat="weight">240</td><td class="left " data-stat="birth_date" csk="19980825">August 25, 1998</td><td class="right " data-stat="birth_country"><span class="f-i f-us" style="">us</span></td><td class="right " data-stat="years_experience" csk="0.5">R</td><td class="left " data-stat="college"><a href="/friv/colleges.fcgi?college=virginia">Virginia</a></td></tr>
+
+</tbody></table>
+
+
+</div>
+
+
+
+</div>
 <div id="all_per_game-playoffs_per_game" class="table_wrapper tabbed">
     <span class="section_anchor" id="per_game-playoffs_per_game_link" data-label="Per Game"></span>
     <div class="section_heading assoc_per_game" id="per_game_sh">

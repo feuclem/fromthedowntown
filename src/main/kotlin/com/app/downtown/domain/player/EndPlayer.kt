@@ -8,7 +8,7 @@ data class EndPlayer(
     override val firstName: String,
     override val lastName: String,
     override val team: Team,
-    val number: Int,
+    val number: String,
     val position: Position,
     val average: Average,
 ): Player
