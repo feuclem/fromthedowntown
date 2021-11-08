@@ -6,10 +6,10 @@ import com.app.downtown.domain.Position
 import com.app.downtown.domain.player.EndPlayer
 import com.app.downtown.domain.Team
 import com.app.downtown.domain.player.PlayerWithAverage
-import com.app.downtown.infra.httpclient.JsoupClient
+import com.app.downtown.infra.repositories.httpclient.JsoupClient
+import com.app.downtown.infra.repositories.PlayerRepository
 import org.jsoup.Jsoup
 import org.junit.jupiter.api.Assertions.assertEquals
-import org.junit.jupiter.api.BeforeAll
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
 import org.mockito.BDDMockito.given

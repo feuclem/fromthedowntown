@@ -1,4 +1,4 @@
-package com.app.downtown.infra.httpclient
+package com.app.downtown.infra.repositories.httpclient
 
 import org.jsoup.nodes.Document
 

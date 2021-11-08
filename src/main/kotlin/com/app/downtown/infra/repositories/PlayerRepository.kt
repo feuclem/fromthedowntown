@@ -1,13 +1,14 @@
-package com.app.downtown.infra
+package com.app.downtown.infra.repositories
 
 import com.app.downtown.domain.Average
 import com.app.downtown.domain.player.EndPlayer
 import com.app.downtown.domain.Position
 import com.app.downtown.domain.Team
 import com.app.downtown.domain.player.PlayerWithAverage
-import com.app.downtown.infra.httpclient.JsoupClient
-import org.jsoup.Jsoup
+import com.app.downtown.infra.repositories.httpclient.JsoupClient
+import org.springframework.stereotype.Repository
 
+@Repository
 class PlayerRepository(
     private var jsoupClient: JsoupClient
 ) {
@@ -42,6 +43,48 @@ class PlayerRepository(
         val OKLAHOMA_CITY_THUNDER_LINK = Pair(Team.OKLAHOMA_CITY_THUNDER, "https://www.basketball-reference.com/teams/OKC/2022.html")
         val HOUSTON_ROCKETS_LINK = Pair(Team.HOUSTON_ROCKETS, "https://www.basketball-reference.com/teams/HOU/2022.html")
         val NEW_ORLEANS_PELICANS_LINK = Pair(Team.NEW_ORLEANS_PELICANS, "https://www.basketball-reference.com/teams/NOP/2022.html")
+
+        val allTeams = listOf(
+            PHILADELPHIA_76_ERS_LINK,
+            CHICAGO_BULLS_LINK,
+            BROOKLYN_NETS_LINK,
+            NEW_YORK_KNICKS_LINK,
+            WASHINGTON_WIZARDS_LINK,
+            CLEVELAND_CAVALIERS_LINK,
+            TORONTO_RAPTORS_LINK,
+            MILWAUKEE_BUCKS_LINK,
+            CHARLOTTE_HORNETS_LINK,
+            BOSTON_CELTICS_LINK,
+            ATLANTA_HAWKS_LINK,
+            INDIANA_PACERS_LINK,
+            ORLANDO_MAGIC_LINK,
+            DETROIT_PISTONS_LINK,
+            UTAH_JAZZ_LINK,
+            GOLDEN_STATE_WARRIORS_LINK,
+            DALLAS_MAVERICKS_LINK,
+            PHOENIX_SUNS_LINK,
+            LOS_ANGELES_LAKERS_LINK,
+            MEMPHIS_GRIZZLIES_LINK,
+            SACRAMENTO_KINGS_LINK,
+            DENVER_NUGGETS_LINK,
+            LOS_ANGELES_CLIPPERS_LINK,
+            PORTLAND_TRAIL_BLAZERS_LINK,
+            MINNESOTA_TIMBERWOLVES_LINK,
+            SAN_ANTONIO_SPURS_LINK,
+            OKLAHOMA_CITY_THUNDER_LINK,
+            HOUSTON_ROCKETS_LINK,
+            NEW_ORLEANS_PELICANS_LINK,
+        )
+    }
+
+    fun getAllEndPlayersForAllTeams(): List<EndPlayer> {
+        return allTeams.flatMap { linkTeam ->
+            getEndPlayers(
+                teamLink = linkTeam.second,
+                team = linkTeam.first,
+                playersAverages = getPlayerAverages(teamLink = linkTeam.second, team = linkTeam.first)
+            )
+        }
     }
 
     fun getEndPlayers(teamLink: String, team: Team, playersAverages: List<PlayerWithAverage>): List<EndPlayer> {
