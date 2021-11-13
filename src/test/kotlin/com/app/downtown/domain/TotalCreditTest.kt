@@ -14,7 +14,7 @@ class TotalCreditTest {
         totalCredit.decreaseAmount(amountToDecrease)
 
         val expected = 203.8
-        assertEquals(expected, totalCredit.get)
+        assertEquals(expected, totalCredit.value)
     }
 
     @Test
@@ -25,7 +25,7 @@ class TotalCreditTest {
         totalCredit.increaseAmount(amountToIncrease)
 
         val expected = 250.0
-        assertEquals(expected, totalCredit.get)
+        assertEquals(expected, totalCredit.value)
     }
 
     @Test

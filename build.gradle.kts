@@ -25,6 +25,8 @@ dependencies {
     implementation("io.springfox:springfox-swagger2:3.0.0")
     implementation("io.springfox:springfox-swagger-ui:3.0.0")
     implementation("io.springfox:springfox-boot-starter:3.0.0")
+    implementation("org.springframework.boot:spring-boot-starter-data-redis:2.5.6")
+    implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     testImplementation("org.springframework.boot:spring-boot-starter-test:2.5.6")
     testImplementation("org.mock-server:mockserver-netty:5.11.2")
     testImplementation("org.mockito:mockito-core:4.0.0")
