@@ -1,6 +1,6 @@
-package com.app.downtown.infra.repositories
+package com.app.downtown.infra.repositories.player
 
-import com.app.downtown.domain.Team
+import com.app.downtown.domain.team.Team
 
 object PlayerConstant {
     val PHILADELPHIA_76_ERS_LINK = Pair(Team.PHILADELPHIA_76_ERS, "https://www.basketball-reference.com/teams/PHI/2022.html")

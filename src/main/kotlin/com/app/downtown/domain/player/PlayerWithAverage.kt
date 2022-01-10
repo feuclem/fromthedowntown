@@ -1,7 +1,7 @@
 package com.app.downtown.domain.player
 
 import com.app.downtown.domain.Average
-import com.app.downtown.domain.Team
+import com.app.downtown.domain.team.Team
 
 data class PlayerWithAverage(
     override val firstName: String,

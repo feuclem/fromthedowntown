@@ -1,4 +1,4 @@
-package com.app.downtown.infra.repositories
+package com.app.downtown.infra.repositories.player
 
 import java.io.Serializable
 import org.springframework.data.redis.core.RedisHash

@@ -1,15 +1,14 @@
-package com.app.downtown.infra.repositories
+package com.app.downtown.infra.repositories.player
 
 import com.app.downtown.domain.Average
 import com.app.downtown.domain.Cache
 import com.app.downtown.domain.Position
-import com.app.downtown.domain.Team
 import com.app.downtown.domain.player.EndPlayer
 import com.app.downtown.domain.player.EndPlayers
 import com.app.downtown.domain.player.PlayerWithAverage
-import com.app.downtown.infra.repositories.PlayerConstant.allTeams
+import com.app.downtown.domain.team.Team
 import com.app.downtown.infra.repositories.httpclient.JsoupClient
-import org.springframework.data.redis.connection.RedisConnectionFactory
+import com.app.downtown.infra.repositories.player.PlayerConstant.allTeams
 import org.springframework.stereotype.Repository
 
 
@@ -23,19 +22,21 @@ class PlayerRepository(
         const val CACHE_KEY = "PLAYER_LIST"
     }
 
-    fun getAllEndPlayersForAllTeams(): List<EndPlayer> {
-        cache.get(CACHE_KEY, EndPlayers::class.java)?.run { return this.endPlayers }
+    fun getAllEndPlayersForAllTeams(): EndPlayers {
+        cache.get(CACHE_KEY, EndPlayers::class.java)?.run { return this }
 
-        return allTeams.flatMap { linkTeam ->
-            getEndPlayers(
-                teamLink = linkTeam.second,
-                team = linkTeam.first,
-                playersAverages = getPlayerAverages(teamLink = linkTeam.second, team = linkTeam.first)
-            )
-        }.also { cache.set(CACHE_KEY, EndPlayers(it)) }
+        return EndPlayers(
+            endPlayers = allTeams.flatMap { linkTeam ->
+                getEndPlayers(
+                    teamLink = linkTeam.second,
+                    team = linkTeam.first,
+                    playersAverages = getPlayerAverages(teamLink = linkTeam.second, team = linkTeam.first)
+                )
+            }
+        ).also { cache.set(CACHE_KEY, it) }
     }
 
-    fun getPlayersByPosition(position: Position) = getAllEndPlayersForAllTeams().filter { it.position == position }
+    fun getPlayersByPosition(position: Position) = getAllEndPlayersForAllTeams().endPlayers.filter { it.position == position }
 
     internal fun getEndPlayers(
         teamLink: String,
@@ -66,7 +67,9 @@ class PlayerRepository(
                 val number = row.select("th").text()
                 val position = row.select("td").select("[data-stat=\"pos\"]").text()
                 val playersAverage =
-                    playersAverages.find { it.firstName == playerNames[0] && it.lastName == playerNames[1] && it.team == team }
+                    playersAverages.find {
+                        it.firstName == playerNames[0] && it.lastName == playerNames[1] && it.team == team
+                    }
                 EndPlayer(
                     firstName = playerNames[0],
                     lastName = playerNames[1],
@@ -111,7 +114,7 @@ class PlayerRepository(
                 PlayerWithAverage(
                     firstName = name[0],
                     lastName = name[1],
-                    team = Team.LOS_ANGELES_LAKERS,
+                    team = team,
                     average = Average(
                         pointPerMatch = points,
                         reboundPerMatch = rebounds,
@@ -129,41 +132,6 @@ class PlayerRepository(
             "SF" -> Position.SMALL_FORWARD
             "SG" -> Position.SHOOTING_GUARD
             else -> Position.CENTER
-        }
-    }
-
-    private fun parseTeam(team: String): Team {
-        return when (team) {
-            "ATLANTA_HAWKS" -> Team.ATLANTA_HAWKS
-            "BOSTON_CELTICS" -> Team.BOSTON_CELTICS
-            "BROOKLYN_NETS" -> Team.BROOKLYN_NETS
-            "CHARLOTTE_HORNETS" -> Team.CHARLOTTE_HORNETS
-            "CHICAGO_BULLS" -> Team.CHICAGO_BULLS
-            "CLEVELAND_CAVALIERS" -> Team.CLEVELAND_CAVALIERS
-            "DALLAS_MAVERICKS" -> Team.DALLAS_MAVERICKS
-            "DENVER_NUGGETS" -> Team.DENVER_NUGGETS
-            "DETROIT_PISTONS" -> Team.DETROIT_PISTONS
-            "GOLDEN_STATE_WARRIORS" -> Team.GOLDEN_STATE_WARRIORS
-            "HOUSTON_ROCKETS" -> Team.HOUSTON_ROCKETS
-            "INDIANA_PACERS" -> Team.INDIANA_PACERS
-            "LOS_ANGELES_CLIPPERS" -> Team.LOS_ANGELES_CLIPPERS
-            "LOS_ANGELES_LAKERS" -> Team.LOS_ANGELES_LAKERS
-            "MEMPHIS_GRIZZLIES" -> Team.MEMPHIS_GRIZZLIES
-            "MIAMI_HEAT" -> Team.MIAMI_HEAT
-            "MILWAUKEE_BUCKS" -> Team.MILWAUKEE_BUCKS
-            "MINNESOTA_TIMBERWOLVES" -> Team.MINNESOTA_TIMBERWOLVES
-            "NEW_ORLEANS_PELICANS" -> Team.NEW_ORLEANS_PELICANS
-            "NEW_YORK_KNICKS" -> Team.NEW_YORK_KNICKS
-            "OKLAHOMA_CITY_THUNDER" -> Team.OKLAHOMA_CITY_THUNDER
-            "ORLANDO_MAGIC" -> Team.ORLANDO_MAGIC
-            "PHILADELPHIA_76_ERS" -> Team.PHILADELPHIA_76_ERS
-            "PHOENIX_SUNS" -> Team.PHOENIX_SUNS
-            "PORTLAND_TRAIL_BLAZERS" -> Team.PORTLAND_TRAIL_BLAZERS
-            "SACRAMENTO_KINGS" -> Team.SACRAMENTO_KINGS
-            "SAN_ANTONIO_SPURS" -> Team.SAN_ANTONIO_SPURS
-            "TORONTO_RAPTORS" -> Team.TORONTO_RAPTORS
-            "UTAH_JAZZ" -> Team.UTAH_JAZZ
-            else -> Team.WASHINGTON_WIZARDS
         }
     }
 }

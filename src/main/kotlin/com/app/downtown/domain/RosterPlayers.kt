@@ -7,6 +7,9 @@ data class RosterPlayers(
     private val list: MutableList<EndPlayer> = mutableListOf()
 ) {
 
+    val players
+        get() = list
+
     fun add(endPlayer: EndPlayer) {
         list.add(endPlayer)
     }

@@ -1,0 +1,40 @@
+package com.app.downtown.domain.team
+
+import com.app.downtown.domain.team.Team.*
+
+object TeamParser {
+    fun parseTeam(team: String): Team {
+        return when (team) {
+            "ATLANTA_HAWKS" -> ATLANTA_HAWKS
+            "BOSTON_CELTICS" -> BOSTON_CELTICS
+            "BROOKLYN_NETS" -> BROOKLYN_NETS
+            "CHARLOTTE_HORNETS" -> CHARLOTTE_HORNETS
+            "CHICAGO_BULLS" -> CHICAGO_BULLS
+            "CLEVELAND_CAVALIERS" -> CLEVELAND_CAVALIERS
+            "DALLAS_MAVERICKS" -> DALLAS_MAVERICKS
+            "DENVER_NUGGETS" -> DENVER_NUGGETS
+            "DETROIT_PISTONS" -> DETROIT_PISTONS
+            "GOLDEN_STATE_WARRIORS" -> GOLDEN_STATE_WARRIORS
+            "HOUSTON_ROCKETS" -> HOUSTON_ROCKETS
+            "INDIANA_PACERS" -> INDIANA_PACERS
+            "LOS_ANGELES_CLIPPERS" -> LOS_ANGELES_CLIPPERS
+            "LOS_ANGELES_LAKERS" -> LOS_ANGELES_LAKERS
+            "MEMPHIS_GRIZZLIES" -> MEMPHIS_GRIZZLIES
+            "MIAMI_HEAT" -> MIAMI_HEAT
+            "MILWAUKEE_BUCKS" -> MILWAUKEE_BUCKS
+            "MINNESOTA_TIMBERWOLVES" -> MINNESOTA_TIMBERWOLVES
+            "NEW_ORLEANS_PELICANS" -> NEW_ORLEANS_PELICANS
+            "NEW_YORK_KNICKS" -> NEW_YORK_KNICKS
+            "OKLAHOMA_CITY_THUNDER" -> OKLAHOMA_CITY_THUNDER
+            "ORLANDO_MAGIC" -> ORLANDO_MAGIC
+            "PHILADELPHIA_76_ERS" -> PHILADELPHIA_76_ERS
+            "PHOENIX_SUNS" -> PHOENIX_SUNS
+            "PORTLAND_TRAIL_BLAZERS" -> PORTLAND_TRAIL_BLAZERS
+            "SACRAMENTO_KINGS" -> SACRAMENTO_KINGS
+            "SAN_ANTONIO_SPURS" -> SAN_ANTONIO_SPURS
+            "TORONTO_RAPTORS" -> TORONTO_RAPTORS
+            "UTAH_JAZZ" -> UTAH_JAZZ
+            else -> WASHINGTON_WIZARDS
+        }
+    }
+}

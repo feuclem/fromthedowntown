@@ -15,16 +15,17 @@ import com.app.downtown.PlayerDummy.players
 import com.app.downtown.PlayerDummy.rudyGobert
 import com.app.downtown.PlayerDummy.stephenCurry
 import com.app.downtown.domain.Position.CENTER
+import com.app.downtown.domain.player.EndPlayers
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 
-class PlayersTest {
+class EndPlayersTest {
 
     @Test
     fun `filter by name`() {
-        val players = Players(endPlayers = players)
+        val endPlayers = EndPlayers(endPlayers = players)
 
-        val result = players.filterByName("en")
+        val result = endPlayers.filterByName("en")
 
         val expected = listOf(jamesHarden, stephenCurry, luguentzDort)
         assertEquals(expected, result)
@@ -32,9 +33,9 @@ class PlayersTest {
 
     @Test
     fun `filter by position`() {
-        val players = Players(endPlayers = players)
+        val endPlayers = EndPlayers(endPlayers = players)
 
-        val result = players.filterByPosition(CENTER)
+        val result = endPlayers.filterByPosition(CENTER)
 
         val expected = listOf(joelEmbiid, rudyGobert, nikolaJokic, karlAntonyTowns, jakobPoeltl, lamarcusAldridge)
         assertEquals(expected, result)
@@ -42,9 +43,9 @@ class PlayersTest {
 
     @Test
     fun `filter with price superior at 45`() {
-        val players = Players(endPlayers = players)
+        val endPlayers = EndPlayers(endPlayers = players)
 
-        val result = players.filterWithPriceSuperiorAt(45.0)
+        val result = endPlayers.filterWithPriceSuperiorAt(45.0)
 
         val expected = listOf(jamesHarden, nikolaJokic)
         assertEquals(expected, result)
@@ -52,9 +53,9 @@ class PlayersTest {
 
     @Test
     fun `filter with price inferior at 25`() {
-        val players = Players(endPlayers = players)
+        val endPlayers = EndPlayers(endPlayers = players)
 
-        val result = players.filterWithPriceInferiorAt(20.0)
+        val result = endPlayers.filterWithPriceInferiorAt(20.0)
 
         val expected = listOf(luguentzDort, jakobPoeltl, garrisonMathews, grantWilliams, aaronHoliday, isaiahStewart, lamarcusAldridge)
         assertEquals(expected, result)
@@ -62,9 +63,9 @@ class PlayersTest {
 
     @Test
     fun `filter by ascending price`() {
-        val players = Players(endPlayers = players)
+        val endPlayers = EndPlayers(endPlayers = players)
 
-        val result = players.filterByAscendingPrice()
+        val result = endPlayers.filterByAscendingPrice()
 
         val expected = listOf(
             garrisonMathews,
@@ -76,9 +77,9 @@ class PlayersTest {
 
     @Test
     fun `filter by descending price`() {
-        val players = Players(endPlayers = players)
+        val endPlayers = EndPlayers(endPlayers = players)
 
-        val result = players.filterByDescendingPrice()
+        val result = endPlayers.filterByDescendingPrice()
 
         val expected = listOf(
             jamesHarden,

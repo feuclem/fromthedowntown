@@ -2,7 +2,7 @@ package com.app.downtown.domain.player
 
 import com.app.downtown.domain.Average
 import com.app.downtown.domain.Position
-import com.app.downtown.domain.Team
+import com.app.downtown.domain.team.Team
 
 data class EndPlayer(
     override val firstName: String,

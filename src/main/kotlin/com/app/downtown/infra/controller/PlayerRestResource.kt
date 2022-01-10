@@ -9,4 +9,5 @@ data class PlayerRestResource(
     val pointPerMatch: String,
     val reboundPerMatch: String,
     val assistPerMatch: String,
+    val totalCost: String,
 )

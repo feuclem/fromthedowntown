@@ -1,7 +1,8 @@
 package com.app.downtown.domain
 
 import com.app.downtown.PlayerDummy.jamesHarden
-import com.app.downtown.domain.Team.BROOKLYN_NETS
+import com.app.downtown.domain.team.Team.BROOKLYN_NETS
+import com.app.downtown.domain.roster.Roster
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test
 
@@ -14,14 +15,19 @@ class RosterTest {
 
         roster.addTitularPlayer(player)
 
-        val expected = Roster(titularPlayers = RosterPlayers(mutableListOf(jamesHarden)), totalCredit = TotalCredit(203.8))
+        val expected = Roster(
+            _titularPlayers = RosterPlayers(mutableListOf(jamesHarden)),
+            totalCredit = TotalCredit(203.8),
+        )
         assertEquals(expected, roster)
     }
 
     @Test
     fun `remove a titular player to the current roster and increase total credit of player price amount`() {
         val player = jamesHarden
-        val roster = Roster(titularPlayers = RosterPlayers(mutableListOf(player)), totalCredit = TotalCredit(203.8))
+        val roster = Roster(
+            _titularPlayers = RosterPlayers(mutableListOf(player)),
+            totalCredit = TotalCredit(203.8),)
 
         roster.removeTitularPlayer(player)
 
@@ -36,14 +42,19 @@ class RosterTest {
 
         roster.addSubstitutePlayer(player)
 
-        val expected = Roster(substitutePlayers = RosterPlayers(mutableListOf(jamesHarden)), totalCredit = TotalCredit(203.8))
+        val expected = Roster(
+            substitutePlayers = RosterPlayers(mutableListOf(jamesHarden)),
+            totalCredit = TotalCredit(203.8),
+        )
         assertEquals(expected, roster)
     }
 
     @Test
     fun `remove a substitute player to the current roster`() {
         val player = jamesHarden
-        val roster = Roster(substitutePlayers = RosterPlayers(mutableListOf(player)), totalCredit = TotalCredit(203.8))
+        val roster = Roster(
+            substitutePlayers = RosterPlayers(mutableListOf(player)),
+            totalCredit = TotalCredit(203.8),)
 
         roster.removeSubstitutePlayer(player)
 
@@ -65,7 +76,7 @@ class RosterTest {
 
         roster.addTrainer(trainer)
 
-        val expected = Roster(trainer = trainer)
+        val expected = Roster(trainer = trainer,)
         assertEquals(expected, roster)
     }
 
@@ -79,7 +90,7 @@ class RosterTest {
             numberOfDefeat = 15,
             price = 23.0
         )
-        val roster = Roster(trainer = trainer)
+        val roster = Roster(trainer = trainer,)
 
         roster.deleteTrainer()
 

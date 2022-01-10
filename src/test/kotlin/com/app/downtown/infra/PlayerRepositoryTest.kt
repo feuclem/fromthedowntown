@@ -1,12 +1,13 @@
 package com.app.downtown.infra
 
 import com.app.downtown.InMemoryCache
+import com.app.downtown.PlayerDummy.bullsPlayers
 import com.app.downtown.PlayerDummy.lalPlayers
 import com.app.downtown.domain.Average
 import com.app.downtown.domain.Position
-import com.app.downtown.domain.Team
+import com.app.downtown.domain.team.Team
 import com.app.downtown.domain.player.EndPlayer
-import com.app.downtown.infra.repositories.PlayerRepository
+import com.app.downtown.infra.repositories.player.PlayerRepository
 import com.app.downtown.infra.repositories.httpclient.JsoupClient
 import org.jsoup.Jsoup
 import org.junit.jupiter.api.Assertions.assertEquals
@@ -28,8 +29,6 @@ class PlayerRepositoryTest {
             cache = InMemoryCache()
         )
     }
-
-    private val teamLink = "https://www.basketball-reference.com/teams/LAL/2022.html"
 
     @Test
     fun `get all players`() {
@@ -54,7 +53,7 @@ class PlayerRepositoryTest {
         val actual = playerRepository.getAllEndPlayersForAllTeams()
 
         // THEN
-        assertEquals(expected[0], actual[0])
+        assertEquals(expected[0], actual.endPlayers[0])
     }
 
     @Test
@@ -81,12 +80,12 @@ class PlayerRepositoryTest {
         val actual = playerRepository.getAllEndPlayersForAllTeams()
 
         // THEN
-        assertEquals(expected[0], actual[0])
+        assertEquals(expected[0], actual.endPlayers)
     }
 
     private fun mockAllTeams() {
         given(jsoupClient.get("https://www.basketball-reference.com/teams/PHI/2022.html")).willReturn(Jsoup.parse(""""""))
-        given(jsoupClient.get("https://www.basketball-reference.com/teams/CHI/2022.html")).willReturn(Jsoup.parse(""""""))
+        given(jsoupClient.get("https://www.basketball-reference.com/teams/CHI/2022.html")).willReturn(Jsoup.parse(bullsPlayers))
         given(jsoupClient.get("https://www.basketball-reference.com/teams/BRK/2022.html")).willReturn(Jsoup.parse(""""""))
         given(jsoupClient.get("https://www.basketball-reference.com/teams/NYK/2022.html")).willReturn(Jsoup.parse(""""""))
         given(jsoupClient.get("https://www.basketball-reference.com/teams/WAS/2022.html")).willReturn(Jsoup.parse(""""""))

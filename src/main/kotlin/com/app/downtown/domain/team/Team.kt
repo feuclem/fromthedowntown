@@ -1,4 +1,4 @@
-package com.app.downtown.domain
+package com.app.downtown.domain.team
 
 enum class Team(val color1: String, val color2: String) {
     ATLANTA_HAWKS("#E03A3E", "#C1D32F"),

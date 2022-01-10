@@ -1,7 +1,7 @@
 package com.app.downtown.usecases
 
 import com.app.downtown.domain.Position
-import com.app.downtown.infra.repositories.PlayerRepository
+import com.app.downtown.infra.repositories.player.PlayerRepository
 import org.springframework.stereotype.Service
 
 @Service

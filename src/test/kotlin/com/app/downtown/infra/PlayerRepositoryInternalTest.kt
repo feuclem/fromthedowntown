@@ -4,10 +4,10 @@ import com.app.downtown.PlayerDummy.lalPlayers
 import com.app.downtown.domain.Average
 import com.app.downtown.domain.Cache
 import com.app.downtown.domain.Position
-import com.app.downtown.domain.Team
+import com.app.downtown.domain.team.Team
 import com.app.downtown.domain.player.EndPlayer
 import com.app.downtown.domain.player.PlayerWithAverage
-import com.app.downtown.infra.repositories.PlayerRepository
+import com.app.downtown.infra.repositories.player.PlayerRepository
 import com.app.downtown.infra.repositories.httpclient.JsoupClient
 import org.jsoup.Jsoup
 import org.junit.jupiter.api.Assertions.assertEquals
