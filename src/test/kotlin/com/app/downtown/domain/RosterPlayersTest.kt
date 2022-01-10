@@ -32,7 +32,7 @@ class RosterPlayersTest {
 
     @Test
     fun `is player not addable when player is already in roster`() {
-        val player = stephenCurry
+        val player = jamesHarden
         val roster = RosterPlayers(rosterTitularPlayers)
 
         val result = roster.isPlayerAddable(player)
@@ -42,7 +42,7 @@ class RosterPlayersTest {
 
     @Test
     fun `is player not addable when the roster has more than 5 players`() {
-        val player = jamesHarden
+        val player = stephenCurry
         val roster = RosterPlayers(rosterTitularPlayers)
 
         val result = roster.isPlayerAddable(player)
@@ -53,7 +53,7 @@ class RosterPlayersTest {
     @Test
     fun `is center player not addable when there is already a center in roster`() {
         val player = joelEmbiid
-        val roster = RosterPlayers(mutableListOf(karlAntonyTowns))
+        val roster = RosterPlayers(rosterTitularPlayers)
 
         val result = roster.isPlayerAddable(player)
 
@@ -61,9 +61,9 @@ class RosterPlayersTest {
     }
 
     @Test
-    fun `is power forward player not addable when there is already a 2 power forwards in roster`() {
+    fun `is power forward player not addable when there is already a 1 power forward in roster`() {
         val player = aaronGordon
-        val roster = RosterPlayers(mutableListOf(zionWilliamson, juliusRandle))
+        val roster = RosterPlayers(rosterTitularPlayers)
 
         val result = roster.isPlayerAddable(player)
 
@@ -71,9 +71,9 @@ class RosterPlayersTest {
     }
 
     @Test
-    fun `is small forward player not addable when there is already a 2 small forwards in roster`() {
+    fun `is small forward player not addable when there is already a 1 small forward in roster`() {
         val player = tobiasHarris
-        val roster = RosterPlayers(mutableListOf(jimmyButler, kawhiLeonard))
+        val roster = RosterPlayers(rosterTitularPlayers)
 
         val result = roster.isPlayerAddable(player)
 
@@ -81,9 +81,9 @@ class RosterPlayersTest {
     }
 
     @Test
-    fun `is forward player not addable when there is already a 2 forwards in roster`() {
-        val player = tobiasHarris
-        val roster = RosterPlayers(mutableListOf(zionWilliamson, kawhiLeonard))
+    fun `is shooting guard player not addable when there is already a 1 shooting guard in roster`() {
+        val player = devinBooker
+        val roster = RosterPlayers(rosterTitularPlayers)
 
         val result = roster.isPlayerAddable(player)
 
@@ -91,19 +91,9 @@ class RosterPlayersTest {
     }
 
     @Test
-    fun `is shooting guard player not addable when there is already a 2 shooting guards in roster`() {
-        val player = garrisonMathews
-        val roster = RosterPlayers(mutableListOf(donovanMitchell, devinBooker))
-
-        val result = roster.isPlayerAddable(player)
-
-        assertFalse(result)
-    }
-
-    @Test
-    fun `is point guard player not addable when there is already a 2 point guards in roster`() {
+    fun `is point guard player not addable when there is already a 1 point guard1 in roster`() {
         val player = lameloBall
-        val roster = RosterPlayers(mutableListOf(jamesHarden, stephenCurry))
+        val roster = RosterPlayers(rosterTitularPlayers)
 
         val result = roster.isPlayerAddable(player)
 
@@ -111,12 +101,12 @@ class RosterPlayersTest {
     }
 
     @Test
-    fun `is guard player not addable when there is already a 2 guards in roster`() {
-        val player = lameloBall
-        val roster = RosterPlayers(mutableListOf(devinBooker, stephenCurry))
+    fun `test`() {
+        val player = zionWilliamson
+        val roster = RosterPlayers(mutableListOf(jamesHarden, joelEmbiid,))
 
         val result = roster.isPlayerAddable(player)
 
-        assertFalse(result)
+        assertTrue(result)
     }
 }

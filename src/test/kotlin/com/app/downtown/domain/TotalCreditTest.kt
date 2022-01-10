@@ -13,19 +13,19 @@ class TotalCreditTest {
 
         totalCredit.decreaseAmount(amountToDecrease)
 
-        val expected = 203.8
-        assertEquals(expected, totalCredit.value)
+        val expected = 103.80000000000001
+        assertEquals(expected, totalCredit.amount)
     }
 
     @Test
     fun `increase amount`() {
         val amountToIncrease = jamesHarden.average.computePrice
-        val totalCredit = TotalCredit(amount = 203.8)
+        val totalCredit = TotalCredit(amount = 103.80000000000001)
 
         totalCredit.increaseAmount(amountToIncrease)
 
-        val expected = 250.0
-        assertEquals(expected, totalCredit.value)
+        val expected = 150.0
+        assertEquals(expected, totalCredit.amount)
     }
 
     @Test

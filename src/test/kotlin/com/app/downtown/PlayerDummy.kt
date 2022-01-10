@@ -251,19 +251,11 @@ object PlayerDummy {
     )
 
     val rosterTitularPlayers = mutableListOf(
-        karlAntonyTowns,
-        jimmyButler,
-        kawhiLeonard,
-        chrisPaul,
-        stephenCurry
-    )
-
-    val rosterBenchPlayers = mutableListOf(
-        aaronGordon,
-        lamarcusAldridge,
-        isaiahStewart,
-        garrisonMathews,
-        aaronHoliday
+        jamesHarden, // POINT_GUARD
+        donovanMitchell, // SHOOTING_GUARD
+        jimmyButler, // SMALL_FORWARD
+        isaiahStewart, // POWER_FORWARD
+        rudyGobert, // CENTER
     )
 
     val lalPlayers = """<!DOCTYPE html>

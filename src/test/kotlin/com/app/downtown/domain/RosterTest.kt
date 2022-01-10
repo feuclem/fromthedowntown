@@ -16,8 +16,8 @@ class RosterTest {
         roster.addTitularPlayer(player)
 
         val expected = Roster(
-            _titularPlayers = RosterPlayers(mutableListOf(jamesHarden)),
-            totalCredit = TotalCredit(203.8),
+            titularPlayers = RosterPlayers(mutableListOf(jamesHarden)),
+            totalCredit = TotalCredit(103.80000000000001),
         )
         assertEquals(expected, roster)
     }
@@ -26,8 +26,8 @@ class RosterTest {
     fun `remove a titular player to the current roster and increase total credit of player price amount`() {
         val player = jamesHarden
         val roster = Roster(
-            _titularPlayers = RosterPlayers(mutableListOf(player)),
-            totalCredit = TotalCredit(203.8),)
+            titularPlayers = RosterPlayers(mutableListOf(player)),
+            totalCredit = TotalCredit(103.80000000000001),)
 
         roster.removeTitularPlayer(player)
 
@@ -44,7 +44,7 @@ class RosterTest {
 
         val expected = Roster(
             substitutePlayers = RosterPlayers(mutableListOf(jamesHarden)),
-            totalCredit = TotalCredit(203.8),
+            totalCredit = TotalCredit(103.80000000000001),
         )
         assertEquals(expected, roster)
     }
@@ -54,7 +54,7 @@ class RosterTest {
         val player = jamesHarden
         val roster = Roster(
             substitutePlayers = RosterPlayers(mutableListOf(player)),
-            totalCredit = TotalCredit(203.8),)
+            totalCredit = TotalCredit(103.80000000000001),)
 
         roster.removeSubstitutePlayer(player)
 

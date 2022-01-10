@@ -18,16 +18,25 @@ data class RosterPlayers(
         list.remove(endPlayer)
     }
 
-    fun isPlayerAddable(endPlayer: EndPlayer): Boolean =
-        list.contains(endPlayer).not()
-                && list.size < 5
-                && list.any { it.position == CENTER }.not()
-                && list.count { it.position == POWER_FORWARD } < 2
-                && list.count { it.position == SMALL_FORWARD } < 2
-                && list.count { it.position == POWER_FORWARD || it.position == SMALL_FORWARD } < 2
-                && list.count { it.position == SHOOTING_GUARD } < 2
-                && list.count { it.position == POINT_GUARD } < 2
-                && list.count { it.position == SHOOTING_GUARD || it.position == POINT_GUARD } < 2
-
-    val get = list
+    fun isPlayerAddable(endPlayer: EndPlayer): Boolean {
+        if (list.contains(endPlayer).not() && list.size < 5) {
+            return true
+        }
+        if (endPlayer.position == POINT_GUARD && list.any { it.position == POINT_GUARD }) {
+            return false
+        }
+        if (endPlayer.position == SHOOTING_GUARD && list.any { it.position == SHOOTING_GUARD }) {
+            return false
+        }
+        if (endPlayer.position == SMALL_FORWARD && list.any { it.position == SMALL_FORWARD }) {
+            return false
+        }
+        if (endPlayer.position == POWER_FORWARD && list.any { it.position == POWER_FORWARD }) {
+            return false
+        }
+        if (endPlayer.position == CENTER && list.any { it.position == CENTER }) {
+            return false
+        }
+        return true
+    }
 }

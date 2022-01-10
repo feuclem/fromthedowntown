@@ -3,6 +3,7 @@ package com.app.downtown.infra.controller
 import com.app.downtown.domain.PositionParser.parsePosition
 import com.app.downtown.usecases.PlayerFilterByPosition
 import com.app.downtown.usecases.PlayerGeneration
+import java.math.RoundingMode
 import org.springframework.web.bind.annotation.CrossOrigin
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestParam
@@ -26,7 +27,7 @@ class PlayerController(
             pointPerMatch = it.average.pointPerMatch.toString(),
             reboundPerMatch = it.average.reboundPerMatch.toString(),
             assistPerMatch = it.average.assistPerMatch.toString(),
-            totalCost = it.average.computePrice.toString(),
+            totalCost = it.average.computePrice.toBigDecimal().setScale(2, RoundingMode.CEILING).toString(),
         )
     }
 

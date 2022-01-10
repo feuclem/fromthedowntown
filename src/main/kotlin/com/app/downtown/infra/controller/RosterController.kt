@@ -6,6 +6,7 @@ import com.app.downtown.usecases.AddTitularPlayerToRoster
 import com.app.downtown.usecases.AddTitularPlayerToRoster.AddTitularPlayerToRosterParameters
 import com.app.downtown.usecases.RemoveTitularPlayerToRoster
 import com.app.downtown.usecases.RosterIdGeneration
+import org.springframework.web.bind.annotation.CrossOrigin
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RestController
@@ -24,6 +25,7 @@ class RosterController(
         val team: String,
     )
 
+    @CrossOrigin(origins = ["http://localhost:4200"])
     @PostMapping("/rosters/addTitular")
     fun addTitularPlayerToRoster(
         @RequestBody
@@ -41,12 +43,12 @@ class RosterController(
         toRostersRestResource(roster)
     }
 
+    @CrossOrigin(origins = ["http://localhost:4200"])
     @PostMapping("/rosters/removeTitular")
     fun removeTitularPlayerToRoster(
         @RequestBody
         parameters: HandlePlayerToRosterBodyRequest
     ): RostersRestResource = with(parameters) {
-        rosterIdGeneration.invoke(userId = UserId(userId))
         val roster = removeTitularPlayerToRoster.invoke(
             userId = UserId(userId),
             parameters = RemoveTitularPlayerToRoster.RemoveTitularPlayerToRosterParameters(

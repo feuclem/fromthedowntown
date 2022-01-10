@@ -1,17 +1,16 @@
 package com.app.downtown.domain
 
 data class TotalCredit(
-    private var amount: Double = 250.0
+    var amount: Double = 150.0
 ) {
 
-    val value
-        get() = this.amount
-
-    fun decreaseAmount(amountToDecrease: Double) {
+    fun decreaseAmount(amountToDecrease: Double): TotalCredit {
         amount -= amountToDecrease
+        return this
     }
-    fun increaseAmount(amountToIncrease: Double) {
+    fun increaseAmount(amountToIncrease: Double): TotalCredit {
         amount += amountToIncrease
+        return this
     }
 
     fun isTransactionPossible(amountToDecrease: Double): Boolean = (amount - amountToDecrease) >= 0

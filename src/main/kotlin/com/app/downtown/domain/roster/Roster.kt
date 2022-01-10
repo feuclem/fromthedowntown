@@ -6,29 +6,30 @@ import com.app.downtown.domain.Trainer
 import com.app.downtown.domain.player.EndPlayer
 
 data class Roster(
-    private var _titularPlayers: RosterPlayers = RosterPlayers(mutableListOf()),
+    var titularPlayers: RosterPlayers = RosterPlayers(mutableListOf()),
     private var substitutePlayers: RosterPlayers = RosterPlayers(mutableListOf()),
     private var trainer: Trainer? = null,
-    private val totalCredit: TotalCredit = TotalCredit()
+    var totalCredit: TotalCredit = TotalCredit()
 ) {
 
-    val titularPlayers
-        get() = _titularPlayers
-
-    fun addTitularPlayer(endPlayer: EndPlayer) {
+    fun addTitularPlayer(endPlayer: EndPlayer): Roster {
         with(endPlayer) {
-            if (_titularPlayers.isPlayerAddable(this)) {
-                _titularPlayers.add(this)
+            println(endPlayer)
+            println(titularPlayers.isPlayerAddable(endPlayer))
+            if (titularPlayers.isPlayerAddable(endPlayer)) {
+                titularPlayers.add(endPlayer)
                 if (totalCredit.isTransactionPossible(average.computePrice)) {
-                    totalCredit.decreaseAmount(average.computePrice)
+                    totalCredit = totalCredit.decreaseAmount(average.computePrice)
                 }
             }
         }
+        return this
     }
 
-    fun removeTitularPlayer(endPlayer: EndPlayer) {
-        _titularPlayers.remove(endPlayer)
-        totalCredit.increaseAmount(endPlayer.average.computePrice)
+    fun removeTitularPlayer(endPlayer: EndPlayer): Roster {
+        titularPlayers.remove(endPlayer)
+        totalCredit = totalCredit.increaseAmount(endPlayer.average.computePrice)
+        return this
     }
 
     fun addSubstitutePlayer(endPlayer: EndPlayer) {

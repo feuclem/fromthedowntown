@@ -36,15 +36,15 @@ class PlayerRepositoryTest {
         mockAllTeams()
         val expected = listOf(
             EndPlayer(
-                firstName = "Anthony",
-                lastName = "Davis",
-                team = Team.LOS_ANGELES_LAKERS,
-                number = "3",
-                position = Position.CENTER,
+                firstName = "DeMar",
+                lastName = "DeRozan",
+                team = Team.CHICAGO_BULLS,
+                number = "11",
+                position = Position.POWER_FORWARD,
                 average = Average(
-                    pointPerMatch = 24.7,
-                    reboundPerMatch = 11.4,
-                    assistPerMatch = 2.6
+                    pointPerMatch = 26.5,
+                    reboundPerMatch = 5.0,
+                    assistPerMatch = 4.6
                 )
             )
         )
@@ -62,15 +62,15 @@ class PlayerRepositoryTest {
         mockAllTeams()
         val expected = listOf(
             EndPlayer(
-                firstName = "Anthony",
-                lastName = "Davis",
-                team = Team.LOS_ANGELES_LAKERS,
-                number = "3",
-                position = Position.CENTER,
+                firstName = "DeMar",
+                lastName = "DeRozan",
+                team = Team.CHICAGO_BULLS,
+                number = "11",
+                position = Position.POWER_FORWARD,
                 average = Average(
-                    pointPerMatch = 24.7,
-                    reboundPerMatch = 11.4,
-                    assistPerMatch = 2.6
+                    pointPerMatch = 26.5,
+                    reboundPerMatch = 5.0,
+                    assistPerMatch = 4.6
                 )
             )
         )
@@ -80,7 +80,7 @@ class PlayerRepositoryTest {
         val actual = playerRepository.getAllEndPlayersForAllTeams()
 
         // THEN
-        assertEquals(expected[0], actual.endPlayers)
+        assertEquals(expected[0], actual.endPlayers[0])
     }
 
     private fun mockAllTeams() {
