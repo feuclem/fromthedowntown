@@ -12,18 +12,16 @@ data class Roster(
     var totalCredit: TotalCredit = TotalCredit()
 ) {
 
-    fun addTitularPlayer(endPlayer: EndPlayer): Roster {
+    fun addTitularPlayer(endPlayer: EndPlayer): RosterPossibilities {
         with(endPlayer) {
-            println(endPlayer)
-            println(titularPlayers.isPlayerAddable(endPlayer))
             if (titularPlayers.isPlayerAddable(endPlayer)) {
                 titularPlayers.add(endPlayer)
                 if (totalCredit.isTransactionPossible(average.computePrice)) {
                     totalCredit = totalCredit.decreaseAmount(average.computePrice)
-                }
-            }
+                } else return RosterPossibilities.OutOfCredit
+            } else return RosterPossibilities.TitularPlayerNotAddableInRoster
         }
-        return this
+        return RosterPossibilities.RosterUpdated(this)
     }
 
     fun removeTitularPlayer(endPlayer: EndPlayer): Roster {

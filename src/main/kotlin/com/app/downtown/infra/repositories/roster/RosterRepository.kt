@@ -3,7 +3,7 @@ package com.app.downtown.infra.repositories.roster
 import com.app.downtown.domain.Cache
 import com.app.downtown.domain.team.Team
 import com.app.downtown.domain.roster.Roster
-import com.app.downtown.domain.roster.TitularPlayerNotAddableInRosterException
+import com.app.downtown.domain.roster.RosterPossibilities
 import com.app.downtown.domain.user.UserId
 import com.app.downtown.infra.repositories.player.PlayerRepository
 import org.springframework.stereotype.Repository
@@ -26,16 +26,21 @@ class RosterRepository(
         cache.get(generateRosterCacheKeyIdentify(userId), Roster::class.java)!!
     }
 
-    fun addTitularPlayerToRoster(userId: UserId, firstName: String, lastName: String, team: Team): Roster {
-        var roster = cache.get(generateRosterCacheKeyIdentify(userId), Roster::class.java)!!
+    fun addTitularPlayerToRoster(userId: UserId, firstName: String, lastName: String, team: Team): RosterPossibilities {
+        val roster = cache.get(generateRosterCacheKeyIdentify(userId), Roster::class.java)!!
         val player = playerRepository.getAllEndPlayersForAllTeams().searchByNameAndTeam(
             firstName = firstName,
             lastName = lastName,
             team = team
-        ) ?: throw TitularPlayerNotAddableInRosterException()
-        roster = roster.addTitularPlayer(player)
-        cache.set(generateRosterCacheKeyIdentify(userId), roster)
-        return roster
+        )!!
+        return when(val rosterPossibility = roster.addTitularPlayer(player)) {
+            RosterPossibilities.OutOfCredit -> rosterPossibility
+            RosterPossibilities.TitularPlayerNotAddableInRoster -> rosterPossibility
+            is RosterPossibilities.RosterUpdated -> {
+                cache.set(generateRosterCacheKeyIdentify(userId), rosterPossibility.updatedRoster)
+                rosterPossibility
+            }
+        }
     }
 
     fun removeTitularPlayerToRoster(userId: UserId, firstName: String, lastName: String, team: Team): Roster {

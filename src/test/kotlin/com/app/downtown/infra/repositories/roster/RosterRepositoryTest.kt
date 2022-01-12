@@ -10,6 +10,7 @@ import com.app.downtown.domain.TotalCredit
 import com.app.downtown.domain.player.EndPlayer
 import com.app.downtown.domain.player.EndPlayers
 import com.app.downtown.domain.roster.Roster
+import com.app.downtown.domain.roster.RosterPossibilities
 import com.app.downtown.domain.team.Team
 import com.app.downtown.domain.user.UserId
 import com.app.downtown.infra.repositories.player.PlayerRepository
@@ -43,9 +44,11 @@ class RosterRepositoryTest {
         mockGetAllEndPlayersForAllTeams()
         rosterRepository.createRoster(userId = UserId("1xxx1"))
 
-        val expected = Roster(
-            titularPlayers = RosterPlayers(mutableListOf(PlayerDummy.jamesHarden)),
-            totalCredit = TotalCredit(amount = 103.80000000000001)
+        val expected = RosterPossibilities.RosterUpdated(
+            updatedRoster = Roster(
+                titularPlayers = RosterPlayers(mutableListOf(PlayerDummy.jamesHarden)),
+                totalCredit = TotalCredit(amount = 103.80000000000001)
+            )
         )
 
         // WHEN
@@ -66,21 +69,22 @@ class RosterRepositoryTest {
         // GIVEN
         mockGetAllEndPlayersForAllTeams()
 
-        val expected = Roster(
-            titularPlayers = RosterPlayers(
-                mutableListOf(
-                    PlayerDummy.jamesHarden,
-                    PlayerDummy.joelEmbiid,
-                    PlayerDummy.zionWilliamson,
-                    PlayerDummy.luguentzDort,
-                    PlayerDummy.donovanMitchell,
+        val expected = RosterPossibilities.RosterUpdated(
+            updatedRoster = Roster(
+                titularPlayers = RosterPlayers(
+                    mutableListOf(
+                        PlayerDummy.jamesHarden,
+                        PlayerDummy.joelEmbiid,
+                        PlayerDummy.zionWilliamson,
+                        PlayerDummy.luguentzDort,
+                        PlayerDummy.donovanMitchell,
+                    )
+                ),
+                totalCredit = TotalCredit(
+                    amount = 4.500000000000018
                 )
-            ),
-            totalCredit = TotalCredit(
-                amount = 4.500000000000018
             )
         )
-
         // WHEN
         rosterRepository.createRoster(userId = UserId("1xxx1"))
         rosterRepository.addTitularPlayerToRoster(

@@ -5,12 +5,16 @@ import com.app.downtown.PlayerDummy.bullsPlayers
 import com.app.downtown.PlayerDummy.lalPlayers
 import com.app.downtown.domain.Average
 import com.app.downtown.domain.Position
+import com.app.downtown.domain.filter.PositionSorting
+import com.app.downtown.domain.filter.PositionSorting.*
+import com.app.downtown.domain.filter.PriceSorting
 import com.app.downtown.domain.team.Team
 import com.app.downtown.domain.player.EndPlayer
 import com.app.downtown.infra.repositories.player.PlayerRepository
 import com.app.downtown.infra.repositories.httpclient.JsoupClient
 import org.jsoup.Jsoup
 import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
 import org.mockito.BDDMockito.given
@@ -81,6 +85,38 @@ class PlayerRepositoryTest {
 
         // THEN
         assertEquals(expected[0], actual.endPlayers[0])
+    }
+
+    @Test
+    fun `filter by position`() {
+        // GIVEN
+        mockAllTeams()
+
+        // WHEN
+        val actual = playerRepository.getPlayersByFilter(
+            positionSorting = PositionChoose(Position.POINT_GUARD),
+            priceSorting = PriceSorting.Nothing
+        )
+
+        // THEN
+        assertTrue(actual.endPlayers.all { it.position == Position.POINT_GUARD })
+    }
+
+    @Test
+    fun `filter by position and price desc`() {
+        // GIVEN
+        mockAllTeams()
+
+        // WHEN
+        val actual = playerRepository.getPlayersByFilter(
+            positionSorting = PositionChoose(Position.SMALL_FORWARD),
+            priceSorting = PriceSorting.Descending
+        )
+
+        // THEN
+        assertTrue(actual.endPlayers.all { it.position == Position.SMALL_FORWARD })
+        assertEquals(42.699999999999996, actual.endPlayers[0].average.computePrice)
+        assertEquals(35.5, actual.endPlayers[1].average.computePrice)
     }
 
     private fun mockAllTeams() {

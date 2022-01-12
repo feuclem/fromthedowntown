@@ -1,7 +1,8 @@
 package com.app.downtown.infra.controller
 
-import com.app.downtown.domain.PositionParser.parsePosition
-import com.app.downtown.usecases.PlayerFilterByPosition
+import com.app.downtown.domain.parsePositionSorting
+import com.app.downtown.domain.filter.priceSortingParser
+import com.app.downtown.usecases.PlayerFilter
 import com.app.downtown.usecases.PlayerGeneration
 import java.math.RoundingMode
 import org.springframework.web.bind.annotation.CrossOrigin
@@ -12,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController
 @RestController
 class PlayerController(
     private val playerGeneration: PlayerGeneration,
-    private val playerFilterByPosition: PlayerFilterByPosition
+    private val playerFilter: PlayerFilter
 ) {
 
     @CrossOrigin(origins = ["http://localhost:4200"])
@@ -31,10 +32,15 @@ class PlayerController(
         )
     }
 
+    @CrossOrigin(origins = ["http://localhost:4200"])
     @GetMapping("/players/filter")
     fun playersByPosition(
-        @RequestParam("position") position: String
-    ): List<PlayerRestResource> = playerFilterByPosition.invoke(parsePosition(position)).map {
+        @RequestParam("position") position: String,
+        @RequestParam("price") price: String
+    ): List<PlayerRestResource> = playerFilter.invoke(
+        positionSorting = parsePositionSorting(position),
+        priceSorting = priceSortingParser(price)
+    ).endPlayers.map {
         PlayerRestResource(
             firstName = it.firstName,
             lastName = it.lastName,

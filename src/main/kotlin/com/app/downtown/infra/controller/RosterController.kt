@@ -1,11 +1,13 @@
 package com.app.downtown.infra.controller
 
 import com.app.downtown.domain.roster.Roster
+import com.app.downtown.domain.roster.RosterPossibilities
 import com.app.downtown.domain.user.UserId
 import com.app.downtown.usecases.AddTitularPlayerToRoster
 import com.app.downtown.usecases.AddTitularPlayerToRoster.AddTitularPlayerToRosterParameters
 import com.app.downtown.usecases.RemoveTitularPlayerToRoster
 import com.app.downtown.usecases.RosterIdGeneration
+import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.CrossOrigin
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
@@ -30,9 +32,9 @@ class RosterController(
     fun addTitularPlayerToRoster(
         @RequestBody
         parameters: HandlePlayerToRosterBodyRequest
-    ): RostersRestResource = with(parameters) {
+    ): ResponseEntity<RostersRestResourcePossibilities> = with(parameters) {
         rosterIdGeneration.invoke(userId = UserId(userId))
-        val roster = addTitularPlayerToRoster.invoke(
+        val rosterPossibilities: RosterPossibilities = addTitularPlayerToRoster.invoke(
             userId = UserId(userId),
             parameters = AddTitularPlayerToRosterParameters(
                 firstName = firstName,
@@ -40,7 +42,11 @@ class RosterController(
                 team = team
             )
         )
-        toRostersRestResource(roster)
+        when(rosterPossibilities) {
+            RosterPossibilities.OutOfCredit -> ResponseEntity.status(400).body(RosterOutOfCreditRestResource())
+            RosterPossibilities.TitularPlayerNotAddableInRoster -> ResponseEntity.status(400).body(RosterImpossibleToUpdateRestResource())
+            is RosterPossibilities.RosterUpdated -> ResponseEntity.ok().body(toRostersRestResource(rosterPossibilities.updatedRoster))
+        }
     }
 
     @CrossOrigin(origins = ["http://localhost:4200"])

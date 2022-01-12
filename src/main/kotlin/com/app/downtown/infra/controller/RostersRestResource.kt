@@ -1,0 +1,3 @@
+package com.app.downtown.infra.controller
+
+interface RostersRestResourcePossibilities

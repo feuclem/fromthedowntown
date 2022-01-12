@@ -3,6 +3,11 @@ package com.app.downtown.infra.repositories.player
 import com.app.downtown.domain.Average
 import com.app.downtown.domain.Cache
 import com.app.downtown.domain.Position
+import com.app.downtown.domain.filter.PositionSorting
+import com.app.downtown.domain.filter.PositionSorting.*
+import com.app.downtown.domain.filter.PositionSorting.Nothing
+import com.app.downtown.domain.filter.PriceSorting
+import com.app.downtown.domain.filter.PriceSorting.*
 import com.app.downtown.domain.player.EndPlayer
 import com.app.downtown.domain.player.EndPlayers
 import com.app.downtown.domain.player.PlayerWithAverage
@@ -36,7 +41,18 @@ class PlayerRepository(
         ).also { cache.set(CACHE_KEY, it) }
     }
 
-    fun getPlayersByPosition(position: Position) = getAllEndPlayersForAllTeams().endPlayers.filter { it.position == position }
+    fun getPlayersByFilter(positionSorting: PositionSorting, priceSorting: PriceSorting): EndPlayers {
+        val endPlayers = getAllEndPlayersForAllTeams()
+        val filteredPlayersByPosition = when(positionSorting) {
+            is PositionChoose -> EndPlayers(endPlayers.filterByPosition(positionSorting.position))
+            Nothing -> endPlayers
+        }
+        return when(priceSorting) {
+            Ascending -> EndPlayers(filteredPlayersByPosition.filterByAscendingPrice())
+            Descending -> EndPlayers(filteredPlayersByPosition.filterByDescendingPrice())
+            PriceSorting.Nothing -> filteredPlayersByPosition
+        }
+    }
 
     internal fun getEndPlayers(
         teamLink: String,
